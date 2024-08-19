@@ -20,7 +20,11 @@ class ScienceScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: buildArticleItem(title: cubit.science[index]['title'],
+              child: buildArticleItem(
+                context: context,
+                  author: cubit.science[index]['author'],
+                  link: cubit.science[index]['url'],
+                  title: cubit.science[index]['title'],
                   date: cubit.science[index]['publishedAt'],
                   imageLink: cubit.science[index]['urlToImage'] ??
                       'https://static.vecteezy.com/system/resources/previews/008/281/489/non_2x/no-photos-line-icon-vector.jpg'),

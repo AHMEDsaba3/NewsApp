@@ -20,7 +20,11 @@ class SportsScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: buildArticleItem(title: cubit.sports[index]['title'],
+                child: buildArticleItem(
+                  context: context,
+                    author: cubit.sports[index]['author'],
+                    link: cubit.sports[index]['url'],
+                    title: cubit.sports[index]['title'],
                     date: cubit.sports[index]['publishedAt'],
                     imageLink: cubit.sports[index]['urlToImage'] ??
                         'https://static.vecteezy.com/system/resources/previews/008/281/489/non_2x/no-photos-line-icon-vector.jpg'),
