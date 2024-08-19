@@ -9,15 +9,15 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewsCubit(),
+      create: (context) => NewsCubit()..GetBusinessData(),
       child: BlocConsumer<NewsCubit, NewsState>(
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = NewsCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: Text('News App'),
-              actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+              title: const Text('News App'),
+              actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
             ),
             body: cubit.Screens[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(

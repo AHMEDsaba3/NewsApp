@@ -5,7 +5,7 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Settings',style: TextStyle(fontSize: 22),)
+    return const Center(child: Text('Settings',style: TextStyle(fontSize: 22),)
     );
   }
 }

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:newsapp/cubit/BlocObserver.dart';
 import 'package:newsapp/layout/homepage.dart';
+import 'package:newsapp/network/remote/dio_hellper.dart';
 
 void main() {
   runApp(const MyApp());
   Bloc.observer = MyBlocObserver();
+  DioHellper.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: Colors.black),
             backgroundColor: Colors.white,
             elevation: 0.0,
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
         bottomNavigationBarTheme:
-            BottomNavigationBarThemeData(type: BottomNavigationBarType.fixed,
+            const BottomNavigationBarThemeData(type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
               elevation: 20
             ),
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: const Homepage(),
     );
   }
 }
