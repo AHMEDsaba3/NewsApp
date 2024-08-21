@@ -121,4 +121,12 @@ class NewsCubit extends Cubit<NewsState> {
 
   }
 
+  bool isDark=false;
+
+  void ToggleIsDark(){
+    isDark= !isDark;
+    emit(AppThemeState());
+  }
+
+
 }

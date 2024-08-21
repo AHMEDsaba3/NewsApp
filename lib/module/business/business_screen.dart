@@ -18,17 +18,14 @@ class BusinessScreen extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             itemCount: cubit.business.length,
             itemBuilder: (context, index) {
-             return Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: buildArticleItem(
-                 context: context,
-                   author: cubit.business[index]['author'],
-                   link: cubit.business[index]['url'],
-                   title: cubit.business[index]['title'],
-                    date: cubit.business[index]['publishedAt'],
-                    imageLink: cubit.business[index]['urlToImage'] ??
-                        'https://static.vecteezy.com/system/resources/previews/008/281/489/non_2x/no-photos-line-icon-vector.jpg'),
-             );
+             return buildArticleItem(
+               context: context,
+                 author: cubit.business[index]['author'],
+                 link: cubit.business[index]['url'],
+                 title: cubit.business[index]['title'],
+                  date: cubit.business[index]['publishedAt'],
+                  imageLink: cubit.business[index]['urlToImage'] ??
+                      'https://cdn-icons-png.flaticon.com/128/11542/11542598.png');
             },
 
           );

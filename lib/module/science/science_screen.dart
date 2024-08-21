@@ -18,17 +18,14 @@ class ScienceScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           itemCount: cubit.science.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: buildArticleItem(
-                context: context,
-                  author: cubit.science[index]['author'],
-                  link: cubit.science[index]['url'],
-                  title: cubit.science[index]['title'],
-                  date: cubit.science[index]['publishedAt'],
-                  imageLink: cubit.science[index]['urlToImage'] ??
-                      'https://static.vecteezy.com/system/resources/previews/008/281/489/non_2x/no-photos-line-icon-vector.jpg'),
-            );
+            return buildArticleItem(
+              context: context,
+                author: cubit.science[index]['author'],
+                link: cubit.science[index]['url'],
+                title: cubit.science[index]['title'],
+                date: cubit.science[index]['publishedAt'],
+                imageLink: cubit.science[index]['urlToImage'] ??
+                    'https://cdn-icons-png.flaticon.com/128/11542/11542598.png');
           },
 
         );

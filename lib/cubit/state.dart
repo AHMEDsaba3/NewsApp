@@ -24,3 +24,5 @@ class ScienceErrorData extends NewsState{
 
   ScienceErrorData(this.error);
 }
+
+class AppThemeState extends NewsState{}

@@ -8,27 +8,24 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NewsCubit()..GetBusinessData(),
-      child: BlocConsumer<NewsCubit, NewsState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          var cubit = NewsCubit.get(context);
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('News App'),
-              actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
-            ),
-            body: cubit.Screens[cubit.currentIndex],
-            bottomNavigationBar: BottomNavigationBar(
-                currentIndex: cubit.currentIndex,
-                onTap: (value) {
-                  cubit.changeBottomNavBar(value);
-                },
-                items: cubit.bottomItems),
-          );
-        },
-      ),
+    return BlocConsumer<NewsCubit, NewsState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = NewsCubit.get(context);
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('News App'),
+            actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+          ),
+          body: cubit.Screens[cubit.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+              currentIndex: cubit.currentIndex,
+              onTap: (value) {
+                cubit.changeBottomNavBar(value);
+              },
+              items: cubit.bottomItems),
+        );
+      },
     );
   }
 }
