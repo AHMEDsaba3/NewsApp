@@ -5,12 +5,17 @@ import 'package:newsapp/module/business/business_screen.dart';
 import 'package:newsapp/module/science/science_screen.dart';
 import 'package:newsapp/module/settings/setting_screen.dart';
 import 'package:newsapp/module/sports/sports_screen.dart';
+import 'package:newsapp/network/local/cache_helper.dart';
 import 'package:newsapp/network/remote/dio_hellper.dart';
 
 class NewsCubit extends Cubit<NewsState> {
-  NewsCubit() : super(NewsInitialState());
+  NewsCubit() : super(NewsInitialState()) {
+    isDark = CacheHelper.getData(key: 'isDark') ?? false;
+    emit(AppThemeState());
+  }
 
   static NewsCubit get(context) => BlocProvider.of(context);
+
 
   int currentIndex = 0;
 
@@ -125,8 +130,11 @@ class NewsCubit extends Cubit<NewsState> {
 
   void ToggleIsDark(){
     isDark= !isDark;
+    CacheHelper.putData(key: 'isDark', value: isDark);
     emit(AppThemeState());
   }
+
+
 
 
 }

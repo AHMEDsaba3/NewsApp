@@ -15,7 +15,7 @@ Widget buildArticleItem({required String title,required String date,required Str
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [BoxShadow(color: NewsCubit.get(context).isDark?Color(0xFFb0b3b8):Colors.grey,spreadRadius: 1,blurRadius: 50,blurStyle: BlurStyle.inner,offset: Offset(0, 5))],
-            color: NewsCubit.get(context).isDark?Color(0xFF3a3b3c):Colors.purple.shade300,
+            color: NewsCubit.get(context).isDark?Color(0xFF333739):Colors.purple.shade300,
             borderRadius:  BorderRadius.all(Radius.circular(10))),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -6,16 +6,19 @@ import 'package:newsapp/cubit/BlocObserver.dart';
 import 'package:newsapp/cubit/cubit.dart';
 import 'package:newsapp/cubit/state.dart';
 import 'package:newsapp/layout/homepage.dart';
+import 'package:newsapp/network/local/cache_helper.dart';
 import 'package:newsapp/network/remote/dio_hellper.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   DioHellper.init();
+  await CacheHelper.init();
+  runApp( MyApp());
 }
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+   MyApp({super.key});
+  bool isDark=CacheHelper.getData(key: 'isDark')??false;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             title: 'Flutter Demo',
+            ////////////////////////////////light Mode ///////////////////////////////////
             theme: ThemeData(
               appBarTheme: AppBarTheme(
                   titleSpacing: 20,
@@ -55,7 +59,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
 
-
+            ////////////////////////////////Dark Mode ///////////////////////////////////
             darkTheme: ThemeData(
                 brightness: Brightness.dark,
                 appBarTheme: AppBarTheme(
@@ -79,7 +83,6 @@ class MyApp extends StatelessWidget {
                     )
                 )
             ),
-
             themeMode: NewsCubit.get(context).isDark?ThemeMode.dark:ThemeMode.light,
             debugShowCheckedModeBanner: false,
             home: const Homepage(),
@@ -89,3 +92,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//333739
