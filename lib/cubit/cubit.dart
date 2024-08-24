@@ -134,7 +134,24 @@ class NewsCubit extends Cubit<NewsState> {
     emit(AppThemeState());
   }
 
+  List<dynamic> search =[];
 
+  void GetSearchData(String value){
+      emit(GetSearchLoadingState());
+
+      DioHellper.GetData(url: 'v2/everything', query:{
+        'q':"$value",
+        // 'sortBy':'popularity',
+        'apiKey':'60bbe4ea00cc452eb61124bdc1df8066'
+      }).then((value) {
+        search=value.data['articles'];
+
+        emit(SearchGetData());
+      },).catchError((error){
+        print(error.toString());
+        emit(SearchErrorData(error.toString()));
+      });
+  }
 
 
 }

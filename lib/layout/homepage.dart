@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsapp/cubit/cubit.dart';
 import 'package:newsapp/cubit/state.dart';
+import 'package:newsapp/module/search_page.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -15,7 +16,9 @@ class Homepage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: const Text('News App'),
-            actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+            actions: [IconButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+            }, icon: const Icon(Icons.search))],
           ),
           body: cubit.Screens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(

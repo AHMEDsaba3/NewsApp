@@ -25,4 +25,12 @@ class ScienceErrorData extends NewsState{
   ScienceErrorData(this.error);
 }
 
+class GetSearchLoadingState extends NewsState{}
+class SearchGetData extends NewsState{}
+class SearchErrorData extends NewsState{
+  final String error;
+
+  SearchErrorData(this.error);
+}
+
 class AppThemeState extends NewsState{}
